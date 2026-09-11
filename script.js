@@ -1,10 +1,15 @@
 /* ============================================================
    ARTE Y SABOR — datos y lógica
    ============================================================
-   ⚠️ SIN PRECIOS. No publican carta con precios en ningún canal. Todos los
-   productos listados salen de SUS RESEÑAS REALES o de sus propias fotos.
-   Ninguno inventado. Como es un local con menú del día, la carta cambia:
-   lo ideal es pedirles la pizarra de la semana y cargarla.
+   ✅ CARTA CON PRECIOS REALES (agregada 11-09-2026): transcrita del menú
+   digital oficial del local en Fudo (https://menu.fu.do/arteysabor/qr-menu,
+   el link real que funciona — la variante /mundotattoo de la bio de
+   Instagram está muerta, "TIENDA NO ENCONTRADA", ver nota en index.html).
+   No trae fotos propias por producto (Fudo no las tenía cargadas), así que
+   carta-fotos.js les pone un ícono ilustrado por categoría — no es una foto
+   inventada, se nota que es un dibujo.
+   El "Menú del día" y "Desayunos" siguen sin precio publicado en ningún
+   canal (Instagram bloquea las historias sin sesión) — quedan "Consultar".
    ============================================================ */
 
 const MENU = {
@@ -13,49 +18,125 @@ const MENU = {
     "items": [
       {
         "n": "Menú del día",
-        "d": "\"El menú del día siempre se me hace agua a la boca, es demasiado sabroso\" — reseña real",
+        "d": "\"El menú del día siempre se me hace agua a la boca, es demasiado sabroso\" — reseña real. Precio sin confirmar, cambia día a día.",
         "img": "menu-dia.jpg"
       },
       {
-        "n": "Jugos naturales",
-        "d": "Fotografiados en su propia mesa servida"
-      }
-    ]
-  },
-  "desayunos": {
-    "label": "Desayunos",
-    "items": [
-      {
         "n": "Desayunos",
-        "d": "\"Los desayunos también, bien contundentes\" — cita textual de una reseña real",
+        "d": "\"Los desayunos también, bien contundentes\" — cita textual de una reseña real. Precio sin confirmar.",
         "img": "mesa.jpg"
       }
     ]
   },
-  "restobar": {
-    "label": "Resto bar",
+  "cafe": {
+    "label": "Café y Té",
     "items": [
-      {
-        "n": "Hamburguesas",
-        "d": "\"Hamburguesas súper ricas\" — reseña real"
-      },
-      {
-        "n": "Papas fritas",
-        "d": "\"Cerveza, papas y hamburguesas súper ricas\" — reseña real"
-      },
-      {
-        "n": "Cerveza",
-        "d": "Nombrada por una de sus reseñas reales"
-      }
+      { "n": "Espresso", "p": 1500 },
+      { "n": "Americano", "p": 2000 },
+      { "n": "Cortado", "p": 2500 },
+      { "n": "Capuccino", "p": 2500 },
+      { "n": "Capuccino Sabores", "p": 3000 },
+      { "n": "Latte", "p": 2500 },
+      { "n": "Mocaccino", "p": 3500 },
+      { "n": "Chocolate Caliente", "p": 3500 },
+      { "n": "Frapuccino", "p": 4500 },
+      { "n": "Té Negro", "d": "Manzana, limón o frutos rojos", "p": 1800 },
+      { "n": "Té Verde", "p": 1500 },
+      { "n": "Té de Jamaica", "p": 2000 }
     ]
   },
-  "cafeteria": {
-    "label": "Cafetería",
+  "empanadas": {
+    "label": "Empanadas",
     "items": [
-      {
-        "n": "Café",
-        "d": "\"Los cafés súper ricos\" — cita textual de una reseña real"
-      }
+      { "n": "Empanada de Queso", "d": "Chilena frita", "p": 2500 },
+      { "n": "Empanada Queso Mechada", "d": "Chilena frita", "p": 3000 },
+      { "n": "Empanada Queso Pollo", "d": "Chilena frita", "p": 2500 },
+      { "n": "Empanada Jamón Queso Tocino", "d": "Venezolana, al horno", "p": 2500 },
+      { "n": "Empanada Mechada", "d": "Venezolana, al horno", "p": 2500 },
+      { "n": "Empanada Mechada Queso", "d": "Venezolana, al horno", "p": 2500 },
+      { "n": "Empanada Pabellón", "d": "Venezolana, al horno", "p": 2500 },
+      { "n": "Empanada Pollo", "d": "Venezolana, al horno", "p": 2500 },
+      { "n": "Empanada Pollo Queso", "d": "Venezolana, al horno", "p": 2500 }
+    ]
+  },
+  "sandwiches": {
+    "label": "Sandwiches",
+    "items": [
+      { "n": "Brasileño", "d": "Palta, queso", "p": 5900 },
+      { "n": "Italiano", "d": "Palta, tomate, mayo", "p": 5900 },
+      { "n": "Luco", "d": "Queso", "p": 5900 },
+      { "n": "Chacarero", "d": "Palta, queso o mayonesa", "p": 5900 },
+      { "n": "Pobre", "d": "Cebolla caramelizada y huevo", "p": 5900 }
+    ]
+  },
+  "venezuela": {
+    "label": "Arepas",
+    "items": [
+      { "n": "La Peluda", "d": "Mechada, queso amarillo", "p": 4900 },
+      { "n": "Pabellón (Arepa)", "d": "Mechada, caraota, tajadas, queso llanero", "p": 4900 },
+      { "n": "Reina Pepiada", "d": "Pollo, palta", "p": 4900 }
+    ]
+  },
+  "picar": {
+    "label": "Para Picar",
+    "items": [
+      { "n": "Papas Fritas", "p": 3000 },
+      { "n": "Salchipapas", "p": 4500 },
+      { "n": "Chorrillana", "p": 11900 },
+      { "n": "Pichanga Sureña", "p": 16900 },
+      { "n": "Colación", "p": 5990 },
+      { "n": "Extra Papas Fritas", "p": 1000 }
+    ]
+  },
+  "hamburguesas": {
+    "label": "Hamburguesas y Hot Dog",
+    "items": [
+      { "n": "Tradicional Burger", "d": "Pan de papa, doble carne, cheddar, lechuga, tomate, mayonesa + 300gr papas", "p": 8900 },
+      { "n": "Chicana Burger", "d": "Pan brioche, doble carne, cheddar, guacamole, jalapeño, mayonesa + 300gr papas", "p": 9900 },
+      { "n": "Neo Tradicional Burger", "d": "Pan rojo, doble carne, cheddar, pepinillos, aros de cebolla, tocino, salsa de la casa, barbecue + 300gr papas", "p": 9900 },
+      { "n": "Blackout Burger", "d": "Pan negro, doble carne, cheddar, tocino, lechuga, pepinillos, salsa de la casa, cebolla caramelizada y crispy + 300gr papas", "p": 10900 },
+      { "n": "Paint Burger", "d": "Pan negro, doble carne, tocino, cebolla morada, lechuga, bañado en queso cheddar + 300gr papas", "p": 10900 },
+      { "n": "Perro Caliente Venezolano", "p": 3500 },
+      { "n": "Italiano (Hot Dog)", "p": 3000 },
+      { "n": "Chilezolano", "d": "Palta, tomate, papas hilo, queso gouda, tocino", "p": 3900 }
+    ]
+  },
+  "bebidas": {
+    "label": "Bebidas y Jugos",
+    "items": [
+      { "n": "Bebida Express", "p": 1500 },
+      { "n": "Bebida Personal 350", "p": 2000 },
+      { "n": "Frescolita", "p": 2500 },
+      { "n": "Maltín", "p": 2500 },
+      { "n": "Papelón", "p": 3000 },
+      { "n": "Limonada Tradicional", "p": 3000 },
+      { "n": "Limonada Especial", "d": "Menta, jengibre", "p": 3500 },
+      { "n": "Jugo Natural (Naranja, Piña, Frutilla, Mango...)", "d": "Sabores a elección", "p": 3000 },
+      { "n": "Jugo Mixto", "d": "Con leche", "p": 3500 }
+    ]
+  },
+  "bar": {
+    "label": "Tragos y Vinos",
+    "items": [
+      { "n": "Piscola", "p": 4000 },
+      { "n": "Roncola", "p": 4000 },
+      { "n": "Wiscola", "p": 5000 },
+      { "n": "Mojito Tradicional", "p": 5000 },
+      { "n": "Mojito Sabores", "p": 6000 },
+      { "n": "Daiquiri Frozen", "p": 5000 },
+      { "n": "Pisco Sour Catedral", "p": 6000 },
+      { "n": "Tequila Margarita", "p": 4000 },
+      { "n": "Expreso Martiny", "p": 6000 },
+      { "n": "Ruso Blanco", "p": 4500 },
+      { "n": "Ruso Negro", "p": 4000 },
+      { "n": "Michelada", "p": 1000 },
+      { "n": "Schop Artesanal Amber", "p": 4500 },
+      { "n": "Casillero del Diablo Sauvignon Blanc", "d": "Blancos, botella", "p": 15900 },
+      { "n": "Misiones de Rengo Chardonnay", "d": "Blancos, botella", "p": 14900 },
+      { "n": "Casillero del Diablo Shiraz Rosé", "d": "Rosé, botella", "p": 13900 },
+      { "n": "Undurraga Brut", "d": "Espumante, botella", "p": 15900 },
+      { "n": "Marqués de Casa Concha Cabernet Sauvignon", "d": "Selección reserva, botella", "p": 26900 },
+      { "n": "Copa de vino", "d": "Blanco o tinto, casillero", "p": 4500 }
     ]
   }
 };

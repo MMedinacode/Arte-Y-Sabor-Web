@@ -45,9 +45,13 @@
   - GANCHO DE VENTA 1: Google muestra 'Agregar sitio web'. NO TIENEN SITIO.
   - GANCHO DE VENTA 2: una reseña real dice que el local 'está al fondo del pasillo'.
   -   Un sitio con mapa y fotos ataca justo ese problema.
-  - GANCHO DE VENTA 3 (11-09-2026): el link de su propio menú digital, el que tienen
-  -   publicado en la bio de su Instagram (menu.fu.do/mundotattoo), está MUERTO —
-  -   la página muestra literalmente "TIENDA NO ENCONTRADA". Verificado en vivo.
+  - GANCHO DE VENTA 3 (11-09-2026): la bio de su Instagram (@mundo_tattoo_) muestra
+  -   el link menu.fu.do/mundotattoo, que está MUERTO ("TIENDA NO ENCONTRADA",
+  -   verificado en vivo). El que sí funciona es menu.fu.do/arteysabor/qr-menu
+  -   (lo encontró el usuario) — de ahí sale la carta completa con precios reales
+  -   de abajo. O sea que su propio link público en redes está roto y ni ellos
+  -   parecen saber cuál es el correcto: un caso de uso perfecto para explicarles
+  -   por qué necesitan un sitio propio que no dependa de un link de terceros.
 
   ✅ ACTUALIZACIÓN 11-09-2026 (el usuario encontró el Instagram real):
   - Instagram real: @arteysabor_mt (1147 seguidores), vinculado a @mundo_tattoo_
@@ -71,14 +75,15 @@
   -   aparece tampoco en el bio de Instagram. No se inventa, así que la página
   -   NO lleva botón de llamar ni de WhatsApp — solo Instagram y cómo llegar.
   -   El usuario va a preguntarles directo. ES EL DATO MÁS IMPORTANTE QUE FALTA.
-  - PRECIOS DE LA CARTA (comida/almuerzo): no publican ninguno en ningún canal
-  -   verificable — ni Google, ni el fu.do (muerto), ni las historias de
-  -   Instagram (bloqueadas por login sin cuenta). Todo va a 'Consultar'.
-  -   Tienen un highlight "Almuerzos🤌" con el menú del día, pero Instagram pide
-  -   iniciar sesión para ver historias — no se pudo verificar el contenido, así
-  -   que NO se inventó ningún precio de almuerzo pese a que el usuario
-  -   mencionó una cifra suelta ($5.900) que no se pudo confirmar de forma
-  -   independiente.
+  - ✅ RESUELTO (11-09-2026): PRECIOS DE LA CARTA. El usuario encontró el link
+  -   correcto de su menú Fudo (menu.fu.do/arteysabor/qr-menu) con carta
+  -   completa y precios reales — el $5.900 que había mencionado de memoria
+  -   SÍ es real (los 5 sándwiches cuestan justo eso). Carta reconstruida
+  -   entera en script.js con las 14 categorías originales agrupadas en 8
+  -   pestañas. Sin fotos propias por producto (Fudo no las tenía cargadas) —
+  -   carta-fotos.js les pone un ícono ilustrado, nunca una foto inventada.
+  -   Solo "Menú del día" y "Desayunos" (que cambian diario) siguen en
+  -   'Consultar', porque no hay fuente publicada para esos dos.
   - MENÚ DEL DÍA: cambia cada día. Pedirles la pizarra de la semana; una sección que se
   -   actualice sola sería el mayor valor que se les puede dar.
   - HORA DE APERTURA: Google solo confirma el cierre (21:00).
@@ -97,18 +102,13 @@
 <body>
 
 <div id="loader">
-  <div class="loader-marca" aria-hidden="true">
-    <svg viewBox="0 0 64 64" width="48" height="48"><path d="M10 22h34v18a14 14 0 0 1-14 14h-6a14 14 0 0 1-14-14z" fill="currentColor"/></svg>
-  </div>
+  <img class="loader-logo" src="fotos/logo.jpg" alt="" aria-hidden="true">
 </div>
 
 <header class="site-header">
   <div class="header-inner">
     <button class="brand" data-tab="inicio">
-      <span class="brand-ico" aria-hidden="true">
-        <svg viewBox="0 0 64 64" width="22" height="22"><path d="M10 22h34v18a14 14 0 0 1-14 14h-6a14 14 0 0 1-14-14z" fill="currentColor"/></svg>
-      </span>
-      <span class="brand-name">Arte y Sabor</span>
+      <img class="brand-logo" src="fotos/logo.jpg" alt="Logo de Arte y Sabor">
     </button>
 
     <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
@@ -237,7 +237,7 @@
       <div class="eyebrow-row reveal">
         <span class="eyebrow">La carta</span>
         <h2 class="section-title">Nuestra carta</h2>
-        <p class="section-sub">Arma tu pedido y consúltanos. Según el dato que Google recoge de 4 clientes, el gasto promedio va entre $5.000 y $15.000 por persona.</p>
+        <p class="section-sub">Arma tu pedido. El menú del día y los desayunos cambian a diario — consúltalos directo; el resto de la carta trae precio real.</p>
       </div>
       <div class="menu-tabs" id="menuTabs" role="tablist" aria-label="Categorías de la carta"></div>
       <div id="menuPanels"></div>
@@ -387,7 +387,7 @@
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <div>
-      <span class="brand-name footer-brand">Arte y Sabor</span>
+      <img class="footer-logo" src="fotos/logo.jpg" alt="Logo de Arte y Sabor">
       <p>Gran Av. J. M. Carrera 8784 · La Cisterna, Región Metropolitana</p>
       <p class="status-line"><span class="status-dot" id="statusDot2"></span> <span id="statusText2">—</span></p>
     </div>
