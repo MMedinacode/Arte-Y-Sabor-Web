@@ -8,8 +8,10 @@
    No trae fotos propias por producto (Fudo no las tenía cargadas), así que
    carta-fotos.js les pone un ícono ilustrado por categoría — no es una foto
    inventada, se nota que es un dibujo.
-   El "Menú del día" y "Desayunos" siguen sin precio publicado en ningún
-   canal (Instagram bloquea las historias sin sesión) — quedan "Consultar".
+   MENÚ DEL DÍA (02-10-2026): sus dos precios ($5.900 y $6.900, más papas
+   fritas +$1.000) salen de su propia historia de Instagram de ese día. Los
+   platos cambian a diario; los de la descripción son los de esa historia.
+   "Desayunos" sigue sin precio publicado: queda "Consultar".
    ============================================================ */
 
 const MENU = {
@@ -18,8 +20,19 @@ const MENU = {
     "items": [
       {
         "n": "Menú del día",
-        "d": "\"El menú del día siempre se me hace agua a la boca, es demasiado sabroso\" — reseña real. Precio sin confirmar, cambia día a día.",
+        "d": "Cambia cada día: porotos con rienda, garbanzos, tallarines con salsa boloñesa… Con agregado: arroz o papas mayo, ensalada o consomé.",
+        "p": 5900,
         "img": "menu-dia.jpg"
+      },
+      {
+        "n": "Menú del día con proteína",
+        "d": "Pollo al horno a la mostaza, pechuga a la plancha o palta reina, según el día. Con agregado: arroz o papas mayo, ensalada o consomé.",
+        "p": 6900
+      },
+      {
+        "n": "Agregado de papas fritas",
+        "d": "Para el menú del día.",
+        "p": 1000
       },
       {
         "n": "Desayunos",
